@@ -11,7 +11,7 @@
 	</parent>
 
 	<artifactId>jobj-merge</artifactId>
-	<version>3.2</version>
+	<version>3.3-SNAPSHOT</version>
 
 	<description>Simply merge java objects</description>
 
