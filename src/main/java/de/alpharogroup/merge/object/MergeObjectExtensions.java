@@ -93,13 +93,18 @@ public class MergeObjectExtensions
 	 *             if the property accessor method throws an exception
 	 * @throws IllegalAccessException
 	 *             if the caller does not have access to the property accessor method
+	 * @throws NoSuchFieldException
+	 *             is thrown if no such field exists.
+	 * @throws SecurityException
+	 *             is thrown if a security manager says no.
 	 * @throws IllegalArgumentException
 	 *             if the <code>mergeInObject</code> or <code>withObject</code> argument is null or
 	 *             if the <code>mergeInObject</code> property type is different from the source type
 	 *             and the relevant converter has not been registered.
 	 */
 	public static final <MERGE_IN, WITH> MERGE_IN merge(final MERGE_IN mergeInObject,
-		final WITH withObject) throws InvocationTargetException, IllegalAccessException
+		final WITH withObject) throws InvocationTargetException, IllegalAccessException,
+		NoSuchFieldException, SecurityException
 	{
 		Check.get().notNull(mergeInObject, "mergeInObject").notNull(withObject, "withObject");
 
@@ -133,6 +138,10 @@ public class MergeObjectExtensions
 	 *             if the property accessor method throws an exception
 	 * @throws IllegalAccessException
 	 *             if the caller does not have access to the property accessor method
+	 * @throws NoSuchFieldException
+	 *             is thrown if no such field exists.
+	 * @throws SecurityException
+	 *             is thrown if a security manager says no.
 	 * @throws IllegalArgumentException
 	 *             if the <code>mergeInObject</code> or <code>withObject</code> argument is null or
 	 *             if the <code>mergeInObject</code> property type is different from the source type
@@ -140,19 +149,16 @@ public class MergeObjectExtensions
 	 */
 	public static final <MERGE_IN, WITH> boolean mergeProperty(final MERGE_IN mergeInObject,
 		final WITH withObject, final PropertyDescriptor propertyDescriptor)
-		throws IllegalAccessException, InvocationTargetException
+		throws IllegalAccessException, InvocationTargetException, NoSuchFieldException,
+		SecurityException
 	{
-		if (PropertyUtils.isReadable(mergeInObject, propertyDescriptor.getName())
-			&& PropertyUtils.isWriteable(mergeInObject, propertyDescriptor.getName()))
+		final Method getter = propertyDescriptor.getReadMethod();
+		final Object value = getter.invoke(withObject);
+		if (!ObjectExtensions.isDefaultValue(propertyDescriptor.getPropertyType(), value))
 		{
-			final Method getter = propertyDescriptor.getReadMethod();
-			final Object value = getter.invoke(withObject);
-			if (!ObjectExtensions.isDefaultValue(propertyDescriptor.getPropertyType(), value))
-			{
-				final Method setter = propertyDescriptor.getWriteMethod();
-				setter.invoke(mergeInObject, value);
-				return true;
-			}
+			ReflectionExtensions.copyFieldValue(withObject, mergeInObject,
+				propertyDescriptor.getName());
+			return true;
 		}
 		return false;
 	}

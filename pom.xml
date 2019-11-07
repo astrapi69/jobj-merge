@@ -21,7 +21,7 @@
 		<!-- JOBJ-COPY version -->
 		<jobj-copy.version>3.2</jobj-copy.version>
 		<!-- JOBJ-CORE version -->
-		<jobj-core.version>3.1</jobj-core.version>
+		<jobj-core.version>3.3</jobj-core.version>
 		<!-- EXTERNAL LIBRARIES versions -->
 		<commons-beanutils.version>1.9.4</commons-beanutils.version>
 		<!-- VINTAGE-TIME version -->

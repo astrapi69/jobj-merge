@@ -29,9 +29,6 @@ import org.meanbean.test.BeanTestException;
 import org.meanbean.test.BeanTester;
 import org.testng.annotations.Test;
 
-import de.alpharogroup.date.CreateDateExtensions;
-import de.alpharogroup.date.DateDecorator;
-import de.alpharogroup.date.SqlTimestampDecorator;
 import de.alpharogroup.test.objects.Employee;
 import de.alpharogroup.test.objects.Person;
 import de.alpharogroup.test.objects.enums.Gender;
@@ -49,9 +46,14 @@ public class MergeObjectExtensionsTest
 	 *             the invocation target exception
 	 * @throws IllegalAccessException
 	 *             the illegal access exception
+	 * @throws NoSuchFieldException
+	 *             is thrown if no such field exists.
+	 * @throws SecurityException
+	 *             is thrown if a security manager says no.
 	 */
 	@Test
-	public void testMerge() throws InvocationTargetException, IllegalAccessException
+	public void testMerge() throws InvocationTargetException, IllegalAccessException,
+		NoSuchFieldException, SecurityException
 	{
 
 		final Person person = Person.builder().gender(Gender.FEMALE).name("Anna").married(true)
@@ -114,25 +116,6 @@ public class MergeObjectExtensionsTest
 
 		assertFalse("NoSuchFieldException should be thrown and catched and return false",
 			condition);
-	}
-
-	/**
-	 * Test method for {@link MergeObjectExtensions#merge(Object, Object)}.
-	 *
-	 * @throws InvocationTargetException
-	 *             the invocation target exception
-	 * @throws IllegalAccessException
-	 *             the illegal access exception
-	 */
-	@Test(expectedExceptions = { IllegalArgumentException.class })
-	public void testMergeThrowIllegalArgumentException()
-		throws InvocationTargetException, IllegalAccessException
-	{
-		final DateDecorator dateDecorator = DateDecorator.builder().date(CreateDateExtensions.now())
-			.build();
-
-		final SqlTimestampDecorator timestampDecorator = SqlTimestampDecorator.builder().build();
-		MergeObjectExtensions.merge(timestampDecorator, dateDecorator);
 	}
 
 	/**
