@@ -1,7 +1,7 @@
 /**
  * The MIT License
  *
- * Copyright (C) 2015 Asterios Raptis
+ * Copyright (C) 2017 Asterios Raptis
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
  * associated documentation files (the "Software"), to deal in the Software without restriction,
@@ -63,8 +63,8 @@ public class MergeObjectExtensions
 	 * @throws SecurityException
 	 *             is thrown if a security manager says no.
 	 */
-	public static <MERGE_IN, WITH> boolean mergePropertyWithReflection(
-		final MERGE_IN mergeInObject, final WITH withObject, final String fieldName)
+	public static <MERGE_IN, WITH> boolean mergePropertyWithReflection(final MERGE_IN mergeInObject,
+		final WITH withObject, final String fieldName)
 	{
 		try
 		{
