@@ -1,6 +1,18 @@
 ## Change log
 ----------------------
 
+Version 3.3
+-------------
+
+ADDED:
+
+- gradle build system
+
+CHANGED:
+
+- changed to new package io.github.astrapi69
+- removed maven as build system
+
 Version 3.2
 -------------
 

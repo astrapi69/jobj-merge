@@ -1,7 +1,7 @@
 /**
  * The MIT License
  *
- * Copyright (C) 2015 Asterios Raptis
+ * Copyright (C) 2017 Asterios Raptis
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
  * associated documentation files (the "Software"), to deal in the Software without restriction,
@@ -18,20 +18,18 @@
  * DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.merge.object;
+package io.github.astrapi69.merge.object;
 
-import static org.testng.AssertJUnit.assertFalse;
-import static org.testng.AssertJUnit.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.lang.reflect.InvocationTargetException;
 
-import org.meanbean.test.BeanTestException;
-import org.meanbean.test.BeanTester;
-import org.testng.annotations.Test;
+import org.junit.jupiter.api.Test;
 
-import de.alpharogroup.test.objects.Employee;
-import de.alpharogroup.test.objects.Person;
-import de.alpharogroup.test.objects.enums.Gender;
+import io.github.astrapi69.test.objects.Employee;
+import io.github.astrapi69.test.objects.Person;
+import io.github.astrapi69.test.objects.enums.Gender;
 
 /**
  * The unit test class for the class {@link MergeObjectExtensions}.
@@ -64,14 +62,14 @@ public class MergeObjectExtensionsTest
 		Employee mergeInObject = Employee.builder().build();
 		MergeObjectExtensions.merge(mergeInObject, with);
 
-		assertTrue("", mergeInObject.getId().equals("23"));
-		assertTrue("", mergeInObject.getPerson().equals(person));
+		assertTrue(mergeInObject.getId().equals("23"));
+		assertTrue(mergeInObject.getPerson().equals(person));
 
 		mergeInObject = Employee.builder().id("22").person(Person.builder().build()).build();
 		MergeObjectExtensions.merge(mergeInObject, with);
 
-		assertTrue("", mergeInObject.getId().equals("23"));
-		assertTrue("", mergeInObject.getPerson().equals(person));
+		assertTrue(mergeInObject.getId().equals("23"));
+		assertTrue(mergeInObject.getPerson().equals(person));
 
 	}
 
@@ -92,8 +90,8 @@ public class MergeObjectExtensionsTest
 		boolean condition = MergeObjectExtensions.mergePropertyWithReflection(mergeInObject,
 			withObject, "id");
 
-		assertTrue("", condition);
-		assertTrue("", mergeInObject.getId().equals("23"));
+		assertTrue(condition);
+		assertTrue(mergeInObject.getId().equals("23"));
 
 	}
 
@@ -101,7 +99,7 @@ public class MergeObjectExtensionsTest
 	 * Test method for
 	 * {@link MergeObjectExtensions#mergePropertyWithReflection(Object, Object, String)}
 	 */
-	@Test(enabled = true)
+	@Test
 	public void testMergePropertyWithReflectionCaseException()
 	{
 		final Person person = Person.builder().gender(Gender.FEMALE).name("Anna").married(true)
@@ -114,19 +112,8 @@ public class MergeObjectExtensionsTest
 		boolean condition = MergeObjectExtensions.mergePropertyWithReflection(mergeInObject,
 			withObject, "foo");
 
-		assertFalse("NoSuchFieldException should be thrown and catched and return false",
-			condition);
-	}
-
-	/**
-	 * Test method for {@link MergeObjectExtensions} with {@link BeanTester}
-	 */
-	@Test(expectedExceptions = { BeanTestException.class, InvocationTargetException.class,
-			UnsupportedOperationException.class })
-	public void testWithBeanTester()
-	{
-		final BeanTester beanTester = new BeanTester();
-		beanTester.testBean(MergeObjectExtensions.class);
+		assertFalse(condition,
+			"NoSuchFieldException should be thrown and catched and return false");
 	}
 
 }

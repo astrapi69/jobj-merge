@@ -1,7 +1,7 @@
 /**
  * The MIT License
  *
- * Copyright (C) 2015 Asterios Raptis
+ * Copyright (C) 2017 Asterios Raptis
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
  * associated documentation files (the "Software"), to deal in the Software without restriction,
@@ -18,19 +18,20 @@
  * DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.merge.object;
+package io.github.astrapi69.merge.object;
 
 
 import java.beans.PropertyDescriptor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
+import lombok.experimental.UtilityClass;
+
 import org.apache.commons.beanutils.PropertyUtils;
 
-import de.alpharogroup.check.Check;
-import de.alpharogroup.lang.ObjectExtensions;
-import de.alpharogroup.reflection.ReflectionExtensions;
-import lombok.experimental.UtilityClass;
+import io.github.astrapi69.check.Check;
+import io.github.astrapi69.lang.ObjectExtensions;
+import io.github.astrapi69.reflection.ReflectionExtensions;
 
 /**
  * The class {@link MergeObjectExtensions} provide extension methods for merge a source object with
@@ -62,8 +63,8 @@ public class MergeObjectExtensions
 	 * @throws SecurityException
 	 *             is thrown if a security manager says no.
 	 */
-	public static final <MERGE_IN, WITH> boolean mergePropertyWithReflection(
-		final MERGE_IN mergeInObject, final WITH withObject, final String fieldName)
+	public static <MERGE_IN, WITH> boolean mergePropertyWithReflection(final MERGE_IN mergeInObject,
+		final WITH withObject, final String fieldName)
 	{
 		try
 		{
@@ -102,7 +103,7 @@ public class MergeObjectExtensions
 	 *             if the <code>mergeInObject</code> property type is different from the source type
 	 *             and the relevant converter has not been registered.
 	 */
-	public static final <MERGE_IN, WITH> MERGE_IN merge(final MERGE_IN mergeInObject,
+	public static <MERGE_IN, WITH> MERGE_IN merge(final MERGE_IN mergeInObject,
 		final WITH withObject) throws InvocationTargetException, IllegalAccessException,
 		NoSuchFieldException, SecurityException
 	{
@@ -147,7 +148,7 @@ public class MergeObjectExtensions
 	 *             if the <code>mergeInObject</code> property type is different from the source type
 	 *             and the relevant converter has not been registered.
 	 */
-	public static final <MERGE_IN, WITH> boolean mergeProperty(final MERGE_IN mergeInObject,
+	public static <MERGE_IN, WITH> boolean mergeProperty(final MERGE_IN mergeInObject,
 		final WITH withObject, final PropertyDescriptor propertyDescriptor)
 		throws IllegalAccessException, InvocationTargetException, NoSuchFieldException,
 		SecurityException
