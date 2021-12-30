@@ -40,7 +40,7 @@ Than you can add the dependency to your dependencies:
 	<properties>
 			...
 		<!-- JOBJ-MERGE version -->
-		<jobj-merge.version>3.2</jobj-merge.version>
+		<jobj-merge.version>3.3</jobj-merge.version>
 			...
 	</properties>
 			...
@@ -64,7 +64,7 @@ define version in file gradle.properties
 
 ```
 
-jobjMergeVersion=3.2
+jobjMergeVersion=3.3
 ```
 
 or in build.gradle ext area
@@ -72,7 +72,7 @@ or in build.gradle ext area
 ```
 ext {
 			...
-    jobjMergeVersion = "3.2"
+    jobjMergeVersion = "3.3"
 			...
 }
 ```
