@@ -37,23 +37,23 @@ functionality of jobj-merge:
 
 Than you can add the dependency to your dependencies:
 
-	<properties>
-			...
-		<!-- JOBJ-MERGE version -->
-		<jobj-merge.version>3.3</jobj-merge.version>
-			...
-	</properties>
-			...
-		<dependencies>
-			...
-			<!-- JOBJ-MERGE DEPENDENCY -->
-			<dependency>
-				<groupId>io.github.astrapi69</groupId>
-				<artifactId>jobj-merge</artifactId>
-				<version>${jobj-merge.version}</version>
-			</dependency>
-			...
-		</dependencies>
+    <properties>
+            ...
+        <!-- JOBJ-MERGE version -->
+        <jobj-merge.version>3.3</jobj-merge.version>
+            ...
+    </properties>
+            ...
+        <dependencies>
+            ...
+            <!-- JOBJ-MERGE DEPENDENCY -->
+            <dependency>
+                <groupId>io.github.astrapi69</groupId>
+                <artifactId>jobj-merge</artifactId>
+                <version>${jobj-merge.version}</version>
+            </dependency>
+            ...
+        </dependencies>
 
 ## gradle dependency
 
@@ -71,9 +71,9 @@ or in build.gradle ext area
 
 ```
 ext {
-			...
+            ...
     jobjMergeVersion = "3.3"
-			...
+            ...
 }
 ```
 
@@ -81,9 +81,9 @@ and then add the dependency to the dependencies area
 
 ```
 dependencies {
-			...
+            ...
   implementation("io.github.astrapi69:jobj-merge:$jobjMergeVersion")
-			...
+            ...
 }
 ```
 
