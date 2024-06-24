@@ -1,24 +1,26 @@
 [versions]
-lombok-version = "1.18.22"
-jobj-core-version = "5.3"
 commons-beanutils-version = "1.9.4"
-test-object-version = "8.2"
-junit-jupiter-version = "5.11.0-M2"
-junit-platform-launcher-version = "1.11.0-M2"
 gradle-plugin-grgit-version = "5.2.2"
 gradle-plugin-license-version = "0.16.1"
 gradle-plugin-lombok-version = "8.6"
 gradle-plugin-spotless-version = "7.0.0.BETA1"
 gradle-plugin-version-catalog-update-version = "0.8.4"
 gradle-plugin-versions-version = "0.51.0"
+jobj-core-version = "8.2"
+jobj-reflect-version = "2.4"
+junit-jupiter-version = "5.11.0-M2"
+junit-platform-launcher-version = "1.11.0-M2"
+lombok-version = "1.18.32"
+test-object-version = "8.2"
 
 [libraries]
-lombok = { module = "org.projectlombok:lombok", version.ref = "lombok-version"}
-jobj-core = { module = "io.github.astrapi69:jobj-core", version.ref = "jobj-core-version"}
-commons-beanutils = { module = "commons-beanutils:commons-beanutils", version.ref = "commons-beanutils-version"}
-test-object = { module = "io.github.astrapi69:test-object", version.ref = "test-object-version" }
+commons-beanutils = { module = "commons-beanutils:commons-beanutils", version.ref = "commons-beanutils-version" }
+jobj-core = { module = "io.github.astrapi69:jobj-core", version.ref = "jobj-core-version" }
+jobj-reflect = { module = "io.github.astrapi69:jobj-reflect", version.ref = "jobj-reflect-version" }
 junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit-jupiter-version" }
 junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher", version.ref = "junit-platform-launcher-version" }
+lombok = { module = "org.projectlombok:lombok", version.ref = "lombok-version" }
+test-object = { module = "io.github.astrapi69:test-object", version.ref = "test-object-version" }
 
 [bundles]
 unit-testing = [
@@ -33,4 +35,3 @@ license-gradle-plugin = { id = "com.github.hierynomus.license", version.ref = "g
 lombok-plugin = { id = "io.freefair.lombok", version.ref = "gradle-plugin-lombok-version" }
 spotless-plugin-gradle = { id = "com.diffplug.spotless", version.ref = "gradle-plugin-spotless-version" }
 version-catalog-update = { id = "nl.littlerobots.version-catalog-update", version.ref = "gradle-plugin-version-catalog-update-version" }
-

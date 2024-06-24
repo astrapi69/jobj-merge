@@ -6,6 +6,7 @@ dependencies {
     testAnnotationProcessor libs.lombok
 
     implementation libs.jobj.core
+    implementation libs.jobj.reflect
     implementation libs.commons.beanutils
     // Note: use of bundles...
     testImplementation libs.bundles.unit.testing
