@@ -25,13 +25,12 @@ import java.beans.PropertyDescriptor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-import lombok.experimental.UtilityClass;
-
 import org.apache.commons.beanutils.PropertyUtils;
 
 import io.github.astrapi69.check.Check;
 import io.github.astrapi69.lang.ObjectExtensions;
 import io.github.astrapi69.reflection.ReflectionExtensions;
+import lombok.experimental.UtilityClass;
 
 /**
  * The class {@link MergeObjectExtensions} provide extension methods for merge a source object with

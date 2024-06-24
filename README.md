@@ -14,7 +14,7 @@
 
 </div>
 
-Utility library that holds math functions to make your life easier
+Utility library that holds merge functions to make your life easier
 
 > Please support this project by simply putting a Github <!-- Place this tag where you want the button to render. -->
 <a class="github-button" href="https://github.com/astrapi69/jobj-merge" data-icon="octicon-star" aria-label="Star astrapi69/jobj-merge on GitHub">Star ⭐</a>

@@ -1,11 +1,12 @@
 ## Change log
 ----------------------
 
-Version 3.4-SNAPSHOT
+Version 4-SNAPSHOT
 -------------
 
 ADDED:
 
+- new libs.versions.toml file for new automatic catalog versions update
 - new github action workflow for 'Java CI with Gradle'
 
 CHANGED:
