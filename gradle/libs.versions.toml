@@ -1,5 +1,5 @@
 [versions]
-commons-beanutils-version = "1.9.4"
+commons-beanutils-version = "1.11.0"
 gradle-plugin-grgit-version = "5.2.2"
 gradle-plugin-license-version = "0.16.1"
 gradle-plugin-lombok-version = "8.6"
